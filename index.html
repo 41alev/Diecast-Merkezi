@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diecast & Oyuncak Koleksiyon Siteleri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .ad-space {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ad-space:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .ad-left {
+            left: 20px;
+            bottom: 20px;
+            width: 250px;
+            height: 800px;
+        }
+
+        .ad-right {
+            right: 20px;
+            bottom: 20px;
+            width: 250px;
+            height: 800px;
+        }
+
+        .ad-placeholder {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .ad-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .ad-text {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .ad-price {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .link-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .link-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .link-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .link-url {
+            font-size: 0.9rem;
+            color: #718096;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ad-space {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .ad-space {
+                width: 120px;
+                height: 480px;
+                padding: 15px;
+            }
+
+            .ad-icon {
+                font-size: 36px;
+            }
+
+            .ad-placeholder {
+                font-size: 12px;
+            }
+
+            .ad-text {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sol Reklam Alanı -->
+    <div class="ad-space ad-left">
+        <div class="ad-icon">📢</div>
+        <div class="ad-placeholder">REKLAM ALANI</div>
+        <div class="ad-text">Bu alanda reklamınız görünsün</div>
+        <div class="ad-price">250x800 px</div>
+    </div>
+
+    <!-- Sağ Reklam Alanı -->
+    <div class="ad-space ad-right">
+        <div class="ad-icon">📢</div>
+        <div class="ad-placeholder">REKLAM ALANI</div>
+        <div class="ad-text">Bu alanda reklamınız görünsün</div>
+        <div class="ad-price">250x800 px</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🚗 Diecast & Oyuncak Koleksiyon Siteleri</h1>
+            <p class="subtitle">Model araç ve oyuncak koleksiyoncuları için en iyi kaynaklar</p>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://www.penguendiecast.com/" target="_blank" class="link-card">
+                <div class="link-icon">🐧</div>
+                <div class="link-title">Penguen Diecast</div>
+                <div class="link-url">www.penguendiecast.com</div>
+            </a>
+
+            <a href="https://www.diecastturkey.com/" target="_blank" class="link-card">
+                <div class="link-icon">🇹🇷</div>
+                <div class="link-title">Diecast Turkey</div>
+                <div class="link-url">www.diecastturkey.com</div>
+            </a>
+
+            <a href="https://www.diecastpazar.com/" target="_blank" class="link-card">
+                <div class="link-icon">🏪</div>
+                <div class="link-title">Diecast Pazar</div>
+                <div class="link-url">www.diecastpazar.com</div>
+            </a>
+
+            <a href="https://www.smarttoysdiecast.com/" target="_blank" class="link-card">
+                <div class="link-icon">🎯</div>
+                <div class="link-title">Smart Toys Diecast</div>
+                <div class="link-url">www.smarttoysdiecast.com</div>
+            </a>
+
+            <a href="https://diecast.com.tr/" target="_blank" class="link-card">
+                <div class="link-icon">🏎️</div>
+                <div class="link-title">Diecast</div>
+                <div class="link-url">diecast.com.tr</div>
+            </a>
+
+            <a href="https://lidyatoys.com/" target="_blank" class="link-card">
+                <div class="link-icon">🎁</div>
+                <div class="link-title">Lidya Toys</div>
+                <div class="link-url">lidyatoys.com</div>
+            </a>
+
+            <a href="https://oflitoys61.com/" target="_blank" class="link-card">
+                <div class="link-icon">🚙</div>
+                <div class="link-title">Ofli Toys 61</div>
+                <div class="link-url">oflitoys61.com</div>
+            </a>
+
+            <a href="https://matdiecast.com/" target="_blank" class="link-card">
+                <div class="link-icon">⭐</div>
+                <div class="link-title">Mat Diecast</div>
+                <div class="link-url">matdiecast.com</div>
+            </a>
+
+            <a href="https://zakzuktoys.com/" target="_blank" class="link-card">
+                <div class="link-icon">🎪</div>
+                <div class="link-title">Zakzuk Toys</div>
+                <div class="link-url">zakzuktoys.com</div>
+            </a>
+
+            <a href="https://www.acardiecast.com/" target="_blank" class="link-card">
+                <div class="link-icon">🏁</div>
+                <div class="link-title">Acar Diecast</div>
+                <div class="link-url">www.acardiecast.com</div>
+            </a>
+
+            <a href="https://www.toybloxoyuncak.com/" target="_blank" class="link-card">
+                <div class="link-icon">🧱</div>
+                <div class="link-title">Toy Blox Oyuncak</div>
+                <div class="link-url">www.toybloxoyuncak.com</div>
+            </a>
+
+            <a href="https://www.modelarabalar.com.tr/" target="_blank" class="link-card">
+                <div class="link-icon">🚘</div>
+                <div class="link-title">Model Arabalar</div>
+                <div class="link-url">www.modelarabalar.com.tr</div>
+            </a>
+
+            <a href="https://lunatoyverse.com/" target="_blank" class="link-card">
+                <div class="link-icon">🌙</div>
+                <div class="link-title">Luna Toyverse</div>
+                <div class="link-url">lunatoyverse.com</div>
+            </a>
+
+            <a href="https://www.lidermodel.com.tr/" target="_blank" class="link-card">
+                <div class="link-icon">🏆</div>
+                <div class="link-title">Lider Model</div>
+                <div class="link-url">www.lidermodel.com.tr</div>
+            </a>
+
+            <a href="https://www.164.com.tr/" target="_blank" class="link-card">
+                <div class="link-icon">🔢</div>
+                <div class="link-title">164</div>
+                <div class="link-url">www.164.com.tr</div>
+            </a>
+
+            <a href="https://www.hobbytime.com.tr/" target="_blank" class="link-card">
+                <div class="link-icon">⏰</div>
+                <div class="link-title">Hobby Time</div>
+                <div class="link-url">www.hobbytime.com.tr</div>
+            </a>
+
+            <a href="https://www.shopier.com/engineermadehobby" target="_blank" class="link-card">
+                <div class="link-icon">🔧</div>
+                <div class="link-title">Engineer Made Hobby</div>
+                <div class="link-url">shopier.com/engineermadehobby</div>
+            </a>
+
+            <a href="https://www.storecuttlefish.com/" target="_blank" class="link-card">
+                <div class="link-icon">🦑</div>
+                <div class="link-title">Store Cuttlefish</div>
+                <div class="link-url">www.storecuttlefish.com</div>
+            </a>
+
+            <a href="https://tmzhobby.com/" target="_blank" class="link-card">
+                <div class="link-icon">🎨</div>
+                <div class="link-title">TMZ Hobby</div>
+                <div class="link-url">tmzhobby.com</div>
+            </a>
+        </div>
+
+        <footer>
+            <p>🚗 Türkiye'nin en kapsamlı diecast ve oyuncak siteleri koleksiyonu</p>
+        </footer>
+    </div>
+</body>
+</html>
